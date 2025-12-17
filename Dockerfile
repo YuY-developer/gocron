@@ -13,7 +13,6 @@ WORKDIR /app
 
 RUN git clone -b command-long https://github.com/YuY-developer/gocron.git \
     && cd gocron \
-    && git checkout commadn-long \
     && yarn config set ignore-engines true \
     && make install-vue \
     && make build-vue \
