@@ -8,8 +8,9 @@ RUN go env -w GO111MODULE=on && \
 
 WORKDIR /app
 
-RUN git clone https://github.com/ouqiang/gocron.git \
+RUN git clone https://github.com/YuY-developer/gocron.git \
     && cd gocron \
+    && git branch commadn-long \
     && yarn config set ignore-engines true \
     && make install-vue \
     && make build-vue \
