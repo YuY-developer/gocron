@@ -28,8 +28,6 @@ RUN apk update \
     && addgroup -S app \
     && adduser -S -g app app
 
-RUN cp /etc/localtime /etc/localtime
-
 WORKDIR /app
 
 COPY --from=builder /app/gocron/bin/gocron .
