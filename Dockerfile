@@ -28,7 +28,7 @@ RUN apk update \
     && addgroup -S app \
     && adduser -S -g app app
 
-RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN cp /etc/localtime /etc/localtime
 
 WORKDIR /app
 
