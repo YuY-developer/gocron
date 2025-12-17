@@ -1,5 +1,8 @@
 FROM golang:1.15-alpine as builder
 
+# 使用清华大学镜像源
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
 RUN apk update \
     && apk add --no-cache git ca-certificates make bash yarn nodejs
 
@@ -18,8 +21,10 @@ RUN git clone https://github.com/YuY-developer/gocron.git \
     && CGO_ENABLED=0 make gocron
 
 FROM alpine:3.12
-
-RUN apk add --no-cache ca-certificates tzdata \
+# 使用清华大学镜像源
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+RUN apk update \
+    apk add --no-cache ca-certificates tzdata \
     && addgroup -S app \
     && adduser -S -g app app
 
